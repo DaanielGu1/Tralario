@@ -1,22 +1,17 @@
 from .utils import comparador
 import pickle
 
-with open("./data/entrada100.bin", "rb") as dicionarios:
-    cursos = pickle.load(dicionarios)
-    alunos = pickle.load(dicionarios)
-    notas = pickle.load(dicionarios)
-
-def msort(l: list[str]):
+def msort(l: list[str], alunos):
     if len(l) > 1:
         meio = len(l) // 2
         lEsq = l[:meio]
         lDir = l[meio:]
 
-        msort(lEsq)
-        msort(lDir)
-        merge(l, lEsq, lDir)
+        msort(lEsq, alunos)
+        msort(lDir, alunos)
+        merge(l, lEsq, lDir, alunos)
 
-def merge(l: list[str], lEsq: list[str], lDir: list[str]):
+def merge(l: list[str], lEsq: list[str], lDir: list[str], alunos):
     k = 0
     i = 0
     j = 0

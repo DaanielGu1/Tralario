@@ -9,7 +9,7 @@ def main():
         notas = pickle.load(dicionarios)
 
     l = criar_list_matricula(alunos)
-    msort(l)
+    msort(l, alunos)
 
     print(l)
 
