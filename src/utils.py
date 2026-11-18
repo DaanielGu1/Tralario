@@ -10,7 +10,7 @@ def criar_list_matricula(alunos: DataSchemaAlunos) -> list[str]:
         
     return matriculas
 
-def comparador(mat1: str, mat2: str, matriculas: DataSchema) -> bool:
+def comparador(mat1: str, mat2: str, matriculas: DataSchemaAlunos) -> bool:
     nome1, curso1, tipo1, (ano1, semestre1), _ = matriculas[mat1]
     nome2, curso2, tipo2, (ano2, semestre2), _ = matriculas[mat2]
 

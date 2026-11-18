@@ -4,5 +4,5 @@ type TipoCurso = str
 type AnoSemestre = tuple[int, int]
 type RespondeuQuestionario = bool
 type DataSchemaAlunos = dict[str, tuple[NomeAluno, Curso, TipoCurso, AnoSemestre, RespondeuQuestionario]]
-type DataSchemaMatric = dict[]
-type DataSchemaCursos = dict[]
+type DataSchemaMatric = dict
+type DataSchemaCursos = dict
