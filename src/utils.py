@@ -1,4 +1,4 @@
-from .types import DataSchemaAlunos
+from .types import DataSchemaAlunos, DataSchemaCursos, DataSchemaNotas
 from typing import Literal
 
 def criar_list_matricula(alunos: DataSchemaAlunos) -> list[str]:
@@ -40,4 +40,41 @@ def comparador(mat1: str, mat2: str, matriculas: DataSchemaAlunos) -> bool:
         return False
 
     return mat1 < mat2
+
+def formatacao(l: list[str], cursos: DataSchemaCursos, alunos: DataSchemaAlunos, notas: DataSchemaNotas):
+    cursoAux = ''
+    tipoAux = ''
+    ficha = ''
+
+    f = open("teste.txt", "w")
+
+    for aluno in l:
+        nome, curso, tipo, (ano, semestre), status = alunos[aluno]
+
+        if curso != cursoAux:
+            f.write(f'Curso: {cursos[curso]}\n')
+            cursoAux = curso
+
+        if tipo != tipoAux:
+            if tipo == "I":
+                f.write('Ingressantes:\n')
+            else:
+                f.write('Concluintes:\n')
+
+            tipoAux = tipo
     
+        ficha = f'* {nome} - {aluno} - {ano}/{semestre}'
+        
+        if status:
+            ficha += ' - Ok'
+                
+        else:
+            ficha += ' - Pendente'
+
+        if tipo == "C":
+            if aluno in notas:
+                ficha += f' - {notas[aluno]}'
+            else:
+                ficha += ' - 0.00'
+
+        f.write(f'{ficha}\n')
