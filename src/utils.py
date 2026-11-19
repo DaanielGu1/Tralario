@@ -10,4 +10,3 @@ def criar_list_matricula(alunos: DataSchemaAlunos) -> list[str]:
         
     return matriculas
 
-def comparar_alunos(mat1: str, mat2: str, matriculas:DataSchemaAlunos)-> Literal[-1, 0, 1]:
