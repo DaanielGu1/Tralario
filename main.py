@@ -1,5 +1,6 @@
 import pickle
 from src.merge_sort import msort
+from src.quicknovo import quick_sort2
 from src.utils import criar_list_matricula
 
 def main():
@@ -9,7 +10,7 @@ def main():
         notas = pickle.load(dicionarios)
 
     l = criar_list_matricula(alunos)
-    msort(l, alunos)
+    quick_sort2(l, 0, len(l)-1, alunos)
 
     print(l)
 
