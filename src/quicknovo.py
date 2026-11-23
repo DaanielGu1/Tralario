@@ -20,11 +20,11 @@ def particao(l, inicio, fim, alunos):
     while (i <= j):
         matric_i = l[i]
         matric_j = l[j]
-        while (i <= j and comparador(pivo, matric_i, alunos)): 
+        while (i <= j and comparador(matric_i, pivo, alunos)): 
             i+= 1
             if (i <= fim):
                 matric_i = l[i]
-        while (j >= i and comparador(matric_j, pivo, alunos)):
+        while (j >= i and comparador(pivo, matric_j, alunos)):
             j-= 1
             matric_j = l[j]
 
