@@ -9,7 +9,7 @@ def main():
         notas = pickle.load(dicionarios)
 
     l = criar_list_matricula(alunos)
-    msort(l, alunos)
+    quick_sort2(l, 0, len(l)-1, alunos)
 
     formatacao(l, cursos, alunos, notas)
 if __name__ == "__main__":
