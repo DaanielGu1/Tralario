@@ -10,34 +10,27 @@ def criar_list_matricula(alunos: DataSchemaAlunos) -> list[str]:
         
     return matriculas
 
-def comparador(mat1: str, mat2: str, matriculas: DataSchemaAlunos) -> bool:
-    nome1, curso1, tipo1, (ano1, semestre1), _ = matriculas[mat1]
-    nome2, curso2, tipo2, (ano2, semestre2), _ = matriculas[mat2]
+def comparador(mat1: str, mat2: str, cursos: DataSchemaCursos, alunos: DataSchemaAlunos) -> bool:
+    nome1, curso1, tipo1, (ano1, semestre1), _ = alunos[mat1]
+    nome2, curso2, tipo2, (ano2, semestre2), _ = alunos[mat2]
 
-    if curso1 < curso2:
-        return True
-    if curso1 > curso2:
-        return False # Se passar disso, houve empate.
+    nome_curso1 = cursos[curso1]
+    nome_curso2 = cursos[curso2]
 
-    if tipo1 > tipo2:
-        return True
-    if tipo1 < tipo2:
-        return False
+    if nome_curso1 != nome_curso2:
+        return nome_curso1 < nome_curso2
+    
+    if tipo1 != tipo2:
+        return tipo1 == "I"
+    
+    if ano1 != ano2:
+        return ano1 > ano2
+    
+    if semestre1 != semestre2:
+        return semestre1 > semestre2
 
-    if ano1 > ano2:
-        return True
-    if ano1 < ano2: #um comparador para o ano, se houver empate, compara o semestre
-        return False
-
-    if semestre1 > semestre2:
-        return True
-    if semestre1 < semestre2:
-        return False
-
-    if nome1 < nome2:
-        return True
-    if nome1 > nome2:
-        return False
+    if nome1 != nome2:
+        return nome1 < nome2
 
     return mat1 < mat2
 
